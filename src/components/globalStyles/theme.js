@@ -1,6 +1,6 @@
 const theme={
     colors:{
-        navbarBgColor: "#e1f1dd",
+        navbarBgColor: "#42a5f5",
         mainColor: "#00adb5",
         logoColor: "#393e46",  
     }

@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 
 export const Nav=styled(Flex)`
 background-color: ${({theme})=>theme.colors.navbarBgColor};
-padding: 2rem 2.5rem;
+padding: 1rem 1.5rem;
 
 
 
 `;
 
 export const ProjectName=styled.h3`
-color: black;
+color: white;
 font-weight: 800;
-font-size: 2rem;
+font-size: 1.6rem;
 
 `;
 
@@ -23,8 +23,10 @@ export const Menu=styled.div`
 `;
 
 export const MenuLink=styled(Link)`
-padding: 1rem 0;
-color: ${({theme})=>theme.colors.logoColor};
+
+color:white;
 font-weight: 800;
-font-size: 2rem;
+font-size: 1.6rem;
+text-decoration: none;
+margin: 0 1rem;border:1px solid white;
 `;
