@@ -8,6 +8,7 @@ const Navbar = () => {
      
       <ProjectName>React Movie App</ProjectName>
       <Menu>
+        
         <MenuLink to="login"> Login</MenuLink>
         <MenuLink to="register"> Register</MenuLink>
       </Menu>

@@ -4,11 +4,11 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import { Typography } from "@mui/material";
+import  Typography  from "@mui/material/Typography";
 
 const Login = () => {
   return (
-    <Container>
+    <Container align="center" sx={{maxWidth:600}}>
       <Typography variant="h4" mt={4} align="center">
         LOGİN
       </Typography>
@@ -28,9 +28,16 @@ const Login = () => {
           placeholder="Enter your password"
           fullWidth
         />
-        <Button variant="contained" color="warning" sx={{ mt: 4 }}>
-          Submit
+        <Button variant="contained" sx={{ mt: 4 }}>
+          Login
         </Button>
+      </Box>
+
+      <Box>
+        <Button variant="text">Forgat Password?</Button>
+      </Box>
+      <Box>
+        <Button variant="contained">Continue with Google</Button>
       </Box>
     </Container>
   );
