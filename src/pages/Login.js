@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 // import  getAuth  from "../auth/firebase"
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import  Typography  from "@mui/material/Typography";
+import { AuthContext } from "../context/AuthContext";
 
 const Login = () => {
+    
+
   return (
     <Container align="center" sx={{maxWidth:600}}>
       <Typography variant="h4" mt={4} align="center">
