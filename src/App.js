@@ -8,8 +8,9 @@ import { useState } from 'react';
 import { AuthContext } from './context/AuthContext';
 
 function App() {
-  const[user,setUser]=useState("")
-  console.log(user);
+ 
+const[user,setUser]=useState("")
+ 
   return (
    <AuthContext.Provider value={{user,setUser}}>
      <ThemeProvider theme={theme}>
