@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import Search from "../components/Search";
 
 const Main = () => {
   const [data, setData] = useState();
@@ -21,6 +22,7 @@ const Main = () => {
   console.log(data);
   return (
     <>
+    <Search/>
       <div>main</div>
     </>
   );
