@@ -12,14 +12,14 @@ const Navbar = () => {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log(user);
+      // console.log(user);
       setPerson(user);
     } else {
       setPerson();
     }
   });
 
-  console.log(person);
+  // console.log(person);
   return (
     <Nav justify="space-between">
       <ProjectName>React Movie App</ProjectName>

@@ -1,9 +1,11 @@
-import { SearchContainer } from "./styles/Search.styled";
+import { SearchContainer,InputSearch,ButtonSearch } from "./styles/Search.styled";
 
-const Search = () => {
+const Search = ({setGetSearch}) => {
   return (
     <SearchContainer>
-      <h2>Search</h2>
+     
+      <InputSearch type="text" placeholder="Search Movie" />
+      <ButtonSearch>Search</ButtonSearch>
     </SearchContainer>
   );
 };
