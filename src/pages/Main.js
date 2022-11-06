@@ -7,7 +7,7 @@ import Search from "../components/Search";
 const Main = () => {
   const [defaultMovie, setDefaultMovie] = useState();
   const [buttonSearch, setButtonSearch] = useState(false);
-  const[inputSearch,setInputSearch]=useState();
+  const[inputSearch,setInputSearch]=useState("");
   const api = "f00e39d798c8c480b88ab58980ae237d";
 
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${api}&query=${inputSearch}`;
@@ -15,7 +15,8 @@ const Main = () => {
 
   const getMovie = async () => {
     console.log(buttonSearch)
-    const res = await axios(buttonSearch ? url : url2);
+    console.log(inputSearch);
+    const res = await axios(inputSearch? url : url2);
     console.log(res.data.results);
     setDefaultMovie(res.data.results);
   };
@@ -24,14 +25,15 @@ const Main = () => {
   }, []);
 
   // console.log(data);
-  console.log(buttonSearch)
-  console.log(inputSearch)
+  // console.log(buttonSearch)
+  // console.log(inputSearch)
   
   return (
     <div>
       <div>
      
-        <Search setButtonSearch={setButtonSearch} setInputSearch={setInputSearch} />
+     
+        <Search setButtonSearch={setButtonSearch} setInputSearch={setInputSearch} getMovie={getMovie}/>
       </div>
       
         {defaultMovie?.map((item) => {

@@ -4,16 +4,16 @@ import {
   ButtonSearch,
 } from "./styles/Search.styled";
 
-const Search = ({ setButtonSearch, setInputSearch }) => {
+const Search = ({ setButtonSearch, setInputSearch, getMovie }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(e.target.value)
-    setInputSearch(e.target.value );
+    setInputSearch(e.target.value);
   };
   const handleClick = () => {
-    if (setInputSearch) {
-      setButtonSearch(true);
-    }
+    getMovie();
+
+    setButtonSearch(true);
   };
 
   return (
