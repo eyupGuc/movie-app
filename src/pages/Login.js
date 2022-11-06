@@ -5,24 +5,30 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { AuthContext } from "../context/AuthContext";
+// import { AuthContext } from "../context/AuthContext";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../auth/firebase";
+import { signInWithGoogle } from "../auth/firebase";
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const handleClick = () => {
+
+  const handleEmail = () => {
     if (email && password) {
       signInWithEmailAndPassword(auth, email, password).then(
         (userCredential) => {
-          const user = userCredential;
-          console.log(user);
+          const person = userCredential;
+          console.log(person);
         }
       );
     }
-    
+
     console.log(email);
+  };
+
+  const handleGoogle = () => {
+    signInWithGoogle();
   };
 
   return (
@@ -48,7 +54,7 @@ const Login = () => {
           fullWidth
           onChange={(e) => setPassword(e.target.value)}
         />
-        <Button onClick={handleClick} variant="contained" sx={{ mt: 4 }}>
+        <Button onClick={handleEmail} variant="contained" sx={{ mt: 4 }}>
           Login
         </Button>
       </Box>
@@ -57,7 +63,7 @@ const Login = () => {
         <Button variant="text">Forgat Password?</Button>
       </Box>
       <Box>
-        <Button onClick={handleClick} variant="contained">
+        <Button onClick={handleGoogle} variant="contained">
           Continue with Google
         </Button>
       </Box>
