@@ -21,6 +21,8 @@ const Login = () => {
         }
       );
     }
+    
+    console.log(email);
   };
 
   return (

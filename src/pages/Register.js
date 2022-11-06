@@ -16,14 +16,18 @@ const Register = () => {
   const [password, setPassword] = useState();
 
   const handleClick = () => {
+   
     console.log(email);
     try {
       if (email && password) {
         createUserWithEmailAndPassword(auth, email, password);
+       
+        
       }
     } catch (e) {
       console.log(e);
     }
+    
   };
   return (
     <Container align="center" sx={{ maxWidth: 600 }}>
@@ -36,6 +40,7 @@ const Register = () => {
           label="email"
           placeholder="Enter your email"
           fullWidth
+          value={email || ""}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
@@ -48,6 +53,7 @@ const Register = () => {
           placeholder="Enter your password"
           fullWidth
           required
+          value={password || ""}
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button onClick={handleClick} variant="contained" sx={{ mt: 4 }}>
