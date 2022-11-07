@@ -8,8 +8,10 @@ import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../auth/firebase";
+import { useNavigate } from "react-router";
 
 const Register = () => {
+  const navigate=useNavigate()
   // const{user,setUser}=useContext(AuthContext);
   // setUser("Ahmet");
   const [email, setEmail] = useState();
@@ -21,7 +23,7 @@ const Register = () => {
     try {
       if (email && password) {
         createUserWithEmailAndPassword(auth, email, password);
-       
+       navigate("/")
         
       }
     } catch (e) {

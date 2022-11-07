@@ -16,10 +16,10 @@ const AppRouter = () => {
         <Route path="/" element={<Main />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="/login/:id" element={<MovieDetail/>} />
 
         <Route path=":id" element={<PrivateRouter />}>
-          
-          <Route path=" " element={<MovieDetail />} />
+          <Route path="" element={<MovieDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>

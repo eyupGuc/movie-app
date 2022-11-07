@@ -10,24 +10,28 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../auth/firebase";
 import { signInWithGoogle } from "../auth/firebase";
 import { useNavigate } from "react-router";
+import { DataContext } from "../components/context/DataContext";
+
 
 const Login = () => {
+  const{dataContext,setDataContext}=useContext(DataContext);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const navigate=useNavigate();
-
+  const navigate = useNavigate();
+ 
+console.log(dataContext)
   const handleEmail = () => {
     if (email && password) {
       signInWithEmailAndPassword(auth, email, password).then(
         (userCredential) => {
           const person = userCredential;
           console.log(person);
-          navigate(-1)
-          
+     
+          navigate(-1);
         }
       );
     }
-
+   
     console.log(email);
   };
 

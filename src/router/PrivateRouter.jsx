@@ -7,13 +7,15 @@ const PrivateRouter = () => {
   const [status, setStatus] = useState();
 
   onAuthStateChanged(auth, (user) => {
+    
     if(user){
         setStatus(user)
+        console.log(user)
     }else{
-        setStatus();
+       setStatus() 
     }
   });
-console.log(status)
+// console.log(status)
   return <> {status ? <Outlet/> : <Navigate to="/login"/>}</>;
 };
 export default PrivateRouter;
