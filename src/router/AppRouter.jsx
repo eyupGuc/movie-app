@@ -18,7 +18,7 @@ const AppRouter = () => {
         <Route path="register" element={<Register />} />
         <Route path="/login/:id" element={<MovieDetail/>} />
 
-        <Route path=":id" element={<PrivateRouter />}>
+        <Route path="/movieDetail/:id" element={<PrivateRouter />}>
           <Route path="" element={<MovieDetail />} />
         </Route>
       </Routes>

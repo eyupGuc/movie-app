@@ -49,7 +49,7 @@ const Main = () => {
         const { poster_path, vote_average, title, overview, id } = item;
         setDataContext(id);
         return (
-          <div onClick={() => navigate(`${id}`)} key={id}>
+          <div onClick={() => navigate(`/movieDetail/${id}`)} key={id}>
             <h2>{title}</h2>
             <img
               src={`https://image.tmdb.org/t/p/w1280${poster_path}`}

@@ -2,20 +2,22 @@ import { Navigate, Outlet } from "react-router";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../auth/firebase";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const PrivateRouter = () => {
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState(true);
 
-  onAuthStateChanged(auth, (user) => {
-    
-    if(user){
-        setStatus(user)
-        console.log(user)
-    }else{
-       setStatus() 
-    }
-  });
-// console.log(status)
-  return <> {status ? <Outlet/> : <Navigate to="/login"/>}</>;
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setStatus(true);
+        console.log(user);
+      } else {
+        setStatus();
+      }
+    });
+  },[]);
+  // console.log(status)
+  return <> {status ? <Outlet /> : <Navigate to="/login" />}</>;
 };
 export default PrivateRouter;
