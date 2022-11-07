@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 import Search from "../components/Search";
 
@@ -7,8 +8,9 @@ import Search from "../components/Search";
 const Main = () => {
   const [defaultMovie, setDefaultMovie] = useState();
   const [buttonSearch, setButtonSearch] = useState(false);
-  const[inputSearch,setInputSearch]=useState("");
+  const[inputSearch,setInputSearch]=useState(null);
   const api = "f00e39d798c8c480b88ab58980ae237d";
+  const navigate=useNavigate();
 
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${api}&query=${inputSearch}`;
   const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${api}`;
@@ -26,14 +28,14 @@ const Main = () => {
 
   // console.log(data);
   // console.log(buttonSearch)
-  // console.log(inputSearch)
+   console.log(inputSearch)
   
   return (
     <div>
       <div>
      
      
-        <Search setButtonSearch={setButtonSearch} setInputSearch={setInputSearch} getMovie={getMovie}/>
+        <Search inputSearch={inputSearch} setButtonSearch={setButtonSearch} setInputSearch={setInputSearch} getMovie={getMovie}/>
       </div>
       
         {defaultMovie?.map((item) => {
@@ -41,9 +43,9 @@ const Main = () => {
           const { poster_path, vote_average, title, overview, id } = item;
 
           return (
-            <div key={id}>
+            <div onClick={()=>navigate(`${id}`)}  key={id}>
               <h2>{title}</h2>
-              <img
+              <img 
                 src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
                 width="300px"
                 alt=""

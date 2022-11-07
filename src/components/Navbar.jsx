@@ -12,7 +12,7 @@ const Navbar = () => {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // console.log(user);
+       console.log(user);
       setPerson(user);
     } else {
       setPerson();

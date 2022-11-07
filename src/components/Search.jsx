@@ -1,29 +1,32 @@
 import {
   SearchContainer,
-  InputSearch,
-  ButtonSearch,
+  InputStyleSearch,
+  ButtonStyleSearch,
 } from "./styles/Search.styled";
 
-const Search = ({ setButtonSearch, setInputSearch, getMovie }) => {
+const Search = ({ setButtonSearch, setInputSearch, getMovie,InputSearch}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(e.target.value)
     setInputSearch(e.target.value);
+    // setInputSearch=(" ")
   };
   const handleClick = () => {
     getMovie();
 
     // setButtonSearch(true);
+    
   };
 
   return (
     <SearchContainer>
-      <InputSearch
+      <InputStyleSearch
         type="text"
         placeholder="Search Movie"
         onChange={handleSubmit}
+        value={InputSearch}
       />
-      <ButtonSearch onClick={handleClick}>Search</ButtonSearch>
+      <ButtonStyleSearch onClick={handleClick}>Search</ButtonStyleSearch>
     </SearchContainer>
   );
 };

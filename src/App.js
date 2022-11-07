@@ -1,7 +1,7 @@
 
 import { ThemeProvider } from 'styled-components';
 import './App.css';
-import Main from './pages/Main';
+
 import theme from "./components/globalStyles/theme"
 import AppRouter from './router/AppRouter';
 import { useState } from 'react';

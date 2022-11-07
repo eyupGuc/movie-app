@@ -6,7 +6,7 @@ export const SearchContainer = styled(Flex)`
   
 `;
 
-export const InputSearch = styled.input`
+export const InputStyleSearch = styled.input`
   margin: 1rem;
   padding: 1rem 0;
   text-align: start;
@@ -14,7 +14,7 @@ export const InputSearch = styled.input`
   
 `;
 
-export const ButtonSearch=styled.button`
+export const ButtonStyleSearch=styled.button`
 
 margin: 1rem;
   padding: 1rem 1rem;

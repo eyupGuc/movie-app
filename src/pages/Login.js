@@ -9,10 +9,12 @@ import Typography from "@mui/material/Typography";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../auth/firebase";
 import { signInWithGoogle } from "../auth/firebase";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate=useNavigate();
 
   const handleEmail = () => {
     if (email && password) {
@@ -20,6 +22,8 @@ const Login = () => {
         (userCredential) => {
           const person = userCredential;
           console.log(person);
+          navigate(-1)
+          
         }
       );
     }
