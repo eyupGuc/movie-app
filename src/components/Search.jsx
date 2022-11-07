@@ -13,7 +13,7 @@ const Search = ({ setButtonSearch, setInputSearch, getMovie }) => {
   const handleClick = () => {
     getMovie();
 
-    setButtonSearch(true);
+    // setButtonSearch(true);
   };
 
   return (
