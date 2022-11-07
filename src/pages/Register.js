@@ -4,16 +4,14 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { AuthContext } from "../context/AuthContext";
-import { useContext } from "react";
+
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../auth/firebase";
 import { useNavigate } from "react-router";
 
 const Register = () => {
   const navigate = useNavigate();
-  // const{user,setUser}=useContext(AuthContext);
-  // setUser("Ahmet");
+ 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 

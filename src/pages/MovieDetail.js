@@ -1,8 +1,11 @@
-import { async } from "@firebase/util";
+import { textAlign } from "@mui/system";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 
 import { useNavigate, useParams } from "react-router";
+import { MovieDetailDiv } from "../components/styles/MovieDetail.styled";
 
 const MovieDetail = () => {
   const { id: keys } = useParams();
@@ -19,17 +22,24 @@ const MovieDetail = () => {
   };
   useEffect(() => {
     getMovieDetail();
-    // const { tagline } = dataDetail;
   }, []);
   return (
-    <div>
-      <h5>{dataDetail?.title}</h5>
-      <p>{dataDetail?.overview}</p>
-      <p>{dataDetail?.release_date}</p>
-      <p>{dataDetail?.vote_average}</p>
-      <img src={image_url +dataDetail?.backdrop_path} alt="" />
-      <button onClick={() => navigate("/")}>Home</button>
-    </div>
+    <MovieDetailDiv >
+      <Card style={{ width: "30rem" , }}>
+        <Card.Img variant="top" src={image_url + dataDetail?.backdrop_path} />
+        <Card.Body>
+          <Card.Title>{dataDetail?.title}</Card.Title>
+          <Card.Text>{dataDetail?.overview}</Card.Text>
+        </Card.Body>
+        <ListGroup className="list-group-flush">
+          <ListGroup.Item>{dataDetail?.release_date}</ListGroup.Item>
+          <ListGroup.Item>{dataDetail?.vote_average}</ListGroup.Item>
+        </ListGroup>
+        <Card.Body>
+          <button className="btn btn-success" onClick={() => navigate("/")}>Home</button>
+        </Card.Body>
+      </Card>
+    </MovieDetailDiv>
   );
 };
 
