@@ -12,7 +12,7 @@ const Main = () => {
   const [inputSearch, setInputSearch] = useState(null);
   const api = "f00e39d798c8c480b88ab58980ae237d";
   const navigate = useNavigate();
-  const { dataContext, setDataContext } = useContext(DataContext);
+ 
 
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${api}&query=${inputSearch}`;
   const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${api}`;
@@ -47,7 +47,7 @@ const Main = () => {
       {defaultMovie?.map((item) => {
         // console.log(item);
         const { poster_path, vote_average, title, overview, id } = item;
-        setDataContext(id);
+      
         return (
           <div onClick={() => navigate(`/movieDetail/${id}`)} key={id}>
             <h2>{title}</h2>

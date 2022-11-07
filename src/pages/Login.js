@@ -6,37 +6,43 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 // import { AuthContext } from "../context/AuthContext";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth } from "../auth/firebase";
 import { signInWithGoogle } from "../auth/firebase";
 import { useNavigate } from "react-router";
-import { DataContext } from "../components/context/DataContext";
+import { GoogleAuthProvider } from "firebase/auth";
 
+const provider = new GoogleAuthProvider();
 
 const Login = () => {
-  const{dataContext,setDataContext}=useContext(DataContext);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
- 
-console.log(dataContext)
+
   const handleEmail = () => {
     if (email && password) {
-      signInWithEmailAndPassword(auth, email, password).then(
-        (userCredential) => {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
           const person = userCredential;
           console.log(person);
-     
+
           navigate(-1);
-        }
-      );
+        })
+        .catch((error) => {
+          alert(error);
+        });
     }
-   
-    console.log(email);
   };
 
   const handleGoogle = () => {
-    signInWithGoogle();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        if (user) {
+          navigate("/");
+        }
+      })
+      .catch((error) => alert(error));
   };
 
   return (

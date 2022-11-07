@@ -11,25 +11,27 @@ import { auth } from "../auth/firebase";
 import { useNavigate } from "react-router";
 
 const Register = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   // const{user,setUser}=useContext(AuthContext);
   // setUser("Ahmet");
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   const handleClick = () => {
-   
-    console.log(email);
-    try {
-      if (email && password) {
-        createUserWithEmailAndPassword(auth, email, password);
-       navigate("/")
-        
-      }
-    } catch (e) {
-      console.log(e);
+    // console.log(email);
+
+    if (email && password) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          if (user) {
+            navigate("/");
+          }
+        })
+        .catch((error) => {
+          alert(error);
+        });
     }
-    
   };
   return (
     <Container align="center" sx={{ maxWidth: 600 }}>

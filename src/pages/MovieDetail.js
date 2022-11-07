@@ -1,18 +1,17 @@
 import { async } from "@firebase/util";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useContext } from "react";
+
 import { useNavigate, useParams } from "react-router";
-import { DataContext } from "../components/context/DataContext";
 
 const MovieDetail = () => {
-  const{id:keys}=useParams();
+  const { id: keys } = useParams();
   const navigate = useNavigate();
-  const { dataContext, setDataContext } = useContext(DataContext);
+
   const [dataDetail, setDataDetail] = useState();
-  console.log(dataContext);
 
   const url = `https://api.themoviedb.org/3/movie/${keys}?api_key=f00e39d798c8c480b88ab58980ae237d`;
+  const image_url = `https://image.tmdb.org/t/p/w500`;
   const getMovieDetail = async () => {
     const { data } = await axios(url);
     setDataDetail(data);
@@ -24,10 +23,12 @@ const MovieDetail = () => {
   }, []);
   return (
     <div>
-      <h4>{dataDetail?.tagline}</h4>
-      <h3>{dataDetail?.overview}</h3>
-      <img src={dataDetail?.homepage} alt="" />
-      <button onClick={()=>navigate("/")}>Home</button>
+      <h5>{dataDetail?.title}</h5>
+      <p>{dataDetail?.overview}</p>
+      <p>{dataDetail?.release_date}</p>
+      <p>{dataDetail?.vote_average}</p>
+      <img src={image_url +dataDetail?.backdrop_path} alt="" />
+      <button onClick={() => navigate("/")}>Home</button>
     </div>
   );
 };
