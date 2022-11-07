@@ -1,10 +1,11 @@
 import axios from "axios";
-import { useContext } from "react";
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { DataContext } from "../components/context/DataContext";
+
 
 import Search from "../components/Search";
+import { CardBottom, CardImg, MainCard, MainDiv } from "../components/styles/Main.styled";
 
 const Main = () => {
   const [defaultMovie, setDefaultMovie] = useState();
@@ -46,17 +47,24 @@ const Main = () => {
 
       {defaultMovie?.map((item) => {
         // console.log(item);
-        const { poster_path, vote_average, title, overview, id } = item;
+        const { poster_path, vote_average, title, overview, id,original_title } = item;
       
         return (
-          <div onClick={() => navigate(`/movieDetail/${id}`)} key={id}>
-            <h2>{title}</h2>
-            <img
+          <MainDiv onClick={() => navigate(`/movieDetail/${id}`)} key={id}>
+           <MainCard>
+           
+            <CardImg
               src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
               width="300px"
               alt=""
+
             />
-          </div>
+            <CardBottom>
+              {original_title}
+            </CardBottom>
+            <div>{vote_average}</div>
+           </MainCard>
+          </MainDiv>
         );
       })}
     </div>

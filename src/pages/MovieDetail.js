@@ -32,8 +32,8 @@ const MovieDetail = () => {
           <Card.Text>{dataDetail?.overview}</Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroup.Item>{dataDetail?.release_date}</ListGroup.Item>
-          <ListGroup.Item>{dataDetail?.vote_average}</ListGroup.Item>
+          <ListGroup.Item>Release Date : {dataDetail?.release_date}</ListGroup.Item>
+          <ListGroup.Item>Vote Average : {dataDetail?.vote_average}</ListGroup.Item>
         </ListGroup>
         <Card.Body>
           <button className="btn btn-success" onClick={() => navigate("/")}>Home</button>
