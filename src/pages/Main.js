@@ -3,9 +3,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
-
 import Search from "../components/Search";
-import { CardBottom, CardImg, MainCard, MainDiv } from "../components/styles/Main.styled";
+import {
+  BottomText,
+  CardBottom,
+  CardImg,
+  MainBigDiv,
+  MainCard,
+  MainDiv,
+} from "../components/styles/Main.styled";
 
 const Main = () => {
   const [defaultMovie, setDefaultMovie] = useState();
@@ -13,11 +19,10 @@ const Main = () => {
   const [inputSearch, setInputSearch] = useState(null);
   const api = "f00e39d798c8c480b88ab58980ae237d";
   const navigate = useNavigate();
- 
 
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${api}&query=${inputSearch}`;
   const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${api}`;
-  
+
   const getMovie = async () => {
     // console.log(buttonSearch)
     // console.log(inputSearch);
@@ -47,23 +52,28 @@ const Main = () => {
 
       {defaultMovie?.map((item) => {
         // console.log(item);
-        const { poster_path, vote_average, title, overview, id,original_title } = item;
-      
-        return (
-          <MainDiv   key={id}>
-           <MainCard onClick={() => navigate(`/movieDetail/${id}`)}>
-           
-            <CardImg
-              src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
-              width="300px"
-              alt=""
+        const {
+          poster_path,
+          vote_average,
+          title,
+          overview,
+          id,
+          original_title,
+        } = item;
 
-            />
-            <CardBottom>
-              {original_title}
-            </CardBottom>
-            <div>{vote_average}</div>
-           </MainCard>
+        return (
+          <MainDiv key={id}>
+            <MainCard onClick={() => navigate(`/movieDetail/${id}`)}>
+              <CardImg
+                src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
+                width="300px"
+                alt=""
+              />
+              <CardBottom>
+                <BottomText> {original_title}</BottomText>
+                <BottomText color="orange"> {vote_average}</BottomText>
+              </CardBottom>
+            </MainCard>
           </MainDiv>
         );
       })}
