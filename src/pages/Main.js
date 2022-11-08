@@ -8,7 +8,7 @@ import {
   BottomText,
   CardBottom,
   CardImg,
-  MainBigDiv,
+ 
   MainCard,
   MainContainer,
   MainDiv,
@@ -17,7 +17,7 @@ import {
 
 const Main = () => {
   const [defaultMovie, setDefaultMovie] = useState();
-  const [buttonSearch, setButtonSearch] = useState(false);
+  const [setButtonSearch] = useState(false);
   const [inputSearch, setInputSearch] = useState(null);
   const api = "f00e39d798c8c480b88ab58980ae237d";
   const navigate = useNavigate();
@@ -32,9 +32,11 @@ const Main = () => {
     console.log(res.data.results);
     setDefaultMovie(res.data.results);
   };
+
+  
   useEffect(() => {
     getMovie();
-  }, []);
+  },[]);
 
   // console.log(data);
   // console.log(buttonSearch)

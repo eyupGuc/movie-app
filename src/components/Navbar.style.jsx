@@ -8,10 +8,11 @@ padding: 1rem 1.5rem;
 
 
 
+
 `;
 
 export const ProjectName=styled.h3`
-color: white;
+color: aliceblue;
 font-weight: 800;
 font-size: 1.6rem;
 
@@ -26,7 +27,7 @@ justify-content: center;
 
 export const MenuLink=styled(Link)`
 
-color:white;
+color: aliceblue;
 font-weight: 800;
 font-size: 1.6rem;
 text-decoration: none;
