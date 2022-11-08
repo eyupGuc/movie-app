@@ -29,11 +29,11 @@ const Main = () => {
     // console.log(buttonSearch)
     // console.log(inputSearch);
     const res = await axios(inputSearch ? url : url2);
-    console.log(res.data.results);
+    // console.log(res.data.results);
     setDefaultMovie(res.data.results);
   };
 
-  
+
   useEffect(() => {
     getMovie();
   },[]);

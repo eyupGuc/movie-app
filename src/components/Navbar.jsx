@@ -19,10 +19,10 @@ const Navbar = () => {
     }
   });
 
-  // console.log(person);
+   console.log(person);
   return (
     <Nav justify="space-between">
-      <ProjectName>Movie App</ProjectName>
+      <ProjectName to="/"> Movie App</ProjectName>
       <Menu>
         {!person ? (
           <>
@@ -31,9 +31,9 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <MenuLink to=" "> {person?.email}</MenuLink>
+            <MenuLink to=" "> {person?.displayName || person?.email}</MenuLink>
             <MenuLink onClick={out} to="login">
-              logout
+              Logout
             </MenuLink>
           </>
         )}
