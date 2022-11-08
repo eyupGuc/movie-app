@@ -18,7 +18,9 @@ font-size: 1.6rem;
 `;
 
 export const Menu=styled.div`
-
+display: flex;
+align-items: center;
+justify-content: center;
 
 `;
 

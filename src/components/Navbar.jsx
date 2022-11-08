@@ -22,7 +22,7 @@ const Navbar = () => {
   // console.log(person);
   return (
     <Nav justify="space-between">
-      <ProjectName>React Movie App</ProjectName>
+      <ProjectName>Movie App</ProjectName>
       <Menu>
         {!person ? (
           <>

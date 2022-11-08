@@ -1,20 +1,40 @@
 import styled from "styled-components";
 
 
-export const MainBigDiv=styled.div`
-width: auto;
+
+
+
+
+
+export const TopContainer=styled.div`
+background-color: aliceblue;
+
 `;
 
-
+export const MainContainer=styled.div`
+display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 2rem 1rem;
+    background-color: aliceblue;
+   
+   
+   
+    
+`;
 
 export const MainDiv=styled.div`
 display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-   
-    margin: 2rem 2rem;
+    margin: 2rem 1rem;
     display: inline-block;
+    flex-direction: column;
+ 
+   
+
   
 
   
@@ -26,9 +46,11 @@ display: flex;
 export const MainCard=styled.div`
 width: 350px;
     height: 500px;
-    position: relative;
+    
     overflow: hidden;
     box-shadow: 6px 8px 6px -2px rgba(0,0,0,0.75);
+    
+  
 
   
 `;

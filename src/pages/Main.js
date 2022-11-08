@@ -10,7 +10,9 @@ import {
   CardImg,
   MainBigDiv,
   MainCard,
+  MainContainer,
   MainDiv,
+  TopContainer,
 } from "../components/styles/Main.styled";
 
 const Main = () => {
@@ -40,7 +42,7 @@ const Main = () => {
   //  console.log(inputSearch)
 
   return (
-    <div>
+    <TopContainer>
       <div>
         <Search
           inputSearch={inputSearch}
@@ -49,35 +51,35 @@ const Main = () => {
           getMovie={getMovie}
         />
       </div>
+      <MainContainer>
+        {defaultMovie?.map((item) => {
+          // console.log(item);
+          const {
+            poster_path,
+            vote_average,
 
-      {defaultMovie?.map((item) => {
-        // console.log(item);
-        const {
-          poster_path,
-          vote_average,
-          title,
-          overview,
-          id,
-          original_title,
-        } = item;
+            id,
+            original_title,
+          } = item;
 
-        return (
-          <MainDiv key={id}>
-            <MainCard onClick={() => navigate(`/movieDetail/${id}`)}>
-              <CardImg
-                src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
-                width="300px"
-                alt=""
-              />
-              <CardBottom>
-                <BottomText> {original_title}</BottomText>
-                <BottomText color="orange"> {vote_average}</BottomText>
-              </CardBottom>
-            </MainCard>
-          </MainDiv>
-        );
-      })}
-    </div>
+          return (
+            <MainDiv key={id}>
+              <MainCard onClick={() => navigate(`/movieDetail/${id}`)}>
+                <CardImg
+                  src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
+                  width="300px"
+                  alt=""
+                />
+                <CardBottom>
+                  <BottomText> {original_title}</BottomText>
+                  <BottomText color="orange"> {vote_average}</BottomText>
+                </CardBottom>
+              </MainCard>
+            </MainDiv>
+          );
+        })}
+      </MainContainer>
+    </TopContainer>
   );
 };
 
