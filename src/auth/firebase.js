@@ -13,10 +13,10 @@ const firebaseConfig = {
 
   const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
-export const signInWithGoogle = () => {
-  signInWithPopup(auth, provider);
-};
+export const provider = new GoogleAuthProvider();
+// export const signInWithGoogle = () => {
+//   signInWithPopup(auth, provider);
+// };
 
 
 
