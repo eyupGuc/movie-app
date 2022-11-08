@@ -8,6 +8,9 @@ display: flex;
     gap: 20px;
     margin-top:30px;
     margin-bottom:30px;
+    flex-direction: row;
+    width: auto;
+    flex-direction: column;
 
 `;
 

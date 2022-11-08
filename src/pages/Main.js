@@ -50,8 +50,8 @@ const Main = () => {
         const { poster_path, vote_average, title, overview, id,original_title } = item;
       
         return (
-          <MainDiv onClick={() => navigate(`/movieDetail/${id}`)} key={id}>
-           <MainCard>
+          <MainDiv   key={id}>
+           <MainCard onClick={() => navigate(`/movieDetail/${id}`)}>
            
             <CardImg
               src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
